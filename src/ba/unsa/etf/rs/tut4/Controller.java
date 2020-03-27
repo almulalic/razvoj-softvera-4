@@ -1,9 +1,11 @@
 package ba.unsa.etf.rs.tut4;
 
-import javafx.fxml.FXML;
+import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.Spinner;
 import javafx.scene.control.TextArea;
 import javafx.event.ActionEvent;
-
+import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.Spinner;
 import java.util.ArrayList;
 
 public class ArtikalController {
@@ -32,3 +34,5 @@ public class ArtikalController {
         filtiraniArtikli.setText(sb.toString());
     }
 }
+
+
