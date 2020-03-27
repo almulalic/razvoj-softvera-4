@@ -3,7 +3,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="327.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ba.unsa.etf.rs.tut4.ArtikalController">
+<AnchorPane prefHeight="400.0" prefWidth="327.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ba.unsa.etf.rs.tut4.Controller">
    <children>
       <TabPane prefHeight="400.0" prefWidth="327.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>
@@ -20,7 +20,21 @@
           </Tab>
           <Tab text="Račun">
             <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="389.0" prefWidth="339.0" />
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="389.0" prefWidth="339.0">
+                     <children>
+                         <ChoiceBox fx:id="choiceBox" layoutX="107.0" layoutY="14.0" prefHeight="25.0" prefWidth="155.0" />
+                        <Label layoutX="14.0" layoutY="18.0" text="Artikal:" />
+                        <Label layoutX="14.0" layoutY="61.0" text="Količina: " />
+                        <Label layoutX="13.0" layoutY="197.0" text="Aktuelni račun:" />
+                         <Spinner fx:id="kolicina" layoutX="107.0" layoutY="57.0" prefHeight="25.0" prefWidth="155.0" BorderPane.alignment="CENTER">
+                             <valueFactory>
+                                 <SpinnerValueFactory.IntegerSpinnerValueFactory max="100" min="0" />
+                             </valueFactory>
+                         </Spinner>
+                        <TextArea layoutX="104.0" layoutY="127.0" prefHeight="157.0" prefWidth="155.0" />
+                        <Button layoutX="105.0" layoutY="90.0" mnemonicParsing="false" onAction="#DodajArtikalNaRacun" text="Dodaj" />
+                     </children>
+              </AnchorPane>
             </content>
           </Tab>
         </tabs>

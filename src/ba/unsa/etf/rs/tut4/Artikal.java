@@ -6,16 +6,24 @@ public class Artikal {
     public double cijena;
 
     public Artikal(String sifra, String naziv, double cijena) {
-        if(sifra.isEmpty())
-            throw new IllegalArgumentException("Sifra je prazna.");
-        else if(naziv.isEmpty())
-            throw new IllegalArgumentException("Naziv je prazan.");
-        else if(cijena <= 0)
-            throw new IllegalArgumentException("Cijena je negativna.");
+        try {
+            setSifra(sifra);
+            setNaziv(naziv);
+            setCijena(cijena);
+        } catch(Exception e) {
+            throw new IllegalArgumentException(e);
+        }
+    }
 
-        this.sifra = sifra;
-        this.naziv = naziv;
-        this.cijena = cijena;
+    public Artikal(String artikal) {
+        try {
+            String[] podaci = artikal.split(",");
+            setSifra(podaci[0]);
+            setNaziv(podaci[1]);
+            setCijena(Double.parseDouble(podaci[2]));
+        } catch(Exception e) {
+            throw new IllegalArgumentException(e);
+        }
     }
 
     public String getSifra() {
@@ -46,7 +54,7 @@ public class Artikal {
 
     public void setCijena(double cijena) {
         if(cijena <= 0)
-            throw new IllegalArgumentException("Cijena ne smije biti negativna.");
+            throw new IllegalArgumentException("Cijena je negativna.");
 
         this.cijena = cijena;
     }
