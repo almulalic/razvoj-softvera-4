@@ -7,11 +7,11 @@ public class Artikal {
 
     public Artikal(String sifra, String naziv, double cijena) {
         if(sifra.isEmpty())
-            throw new IllegalArgumentException("Sifra ne smije biti prazna.");
+            throw new IllegalArgumentException("Sifra je prazna.");
         else if(naziv.isEmpty())
-            throw new IllegalArgumentException("Naziv ne smije biti prazna.");
-        else if(cijena < 0)
-            throw new IllegalArgumentException("Cijena ne smije biti negativna.");
+            throw new IllegalArgumentException("Naziv je prazan.");
+        else if(cijena <= 0)
+            throw new IllegalArgumentException("Cijena je negativna.");
 
         this.sifra = sifra;
         this.naziv = naziv;
@@ -45,10 +45,15 @@ public class Artikal {
     }
 
     public void setCijena(double cijena) {
-        if(cijena < 0)
+        if(cijena <= 0)
             throw new IllegalArgumentException("Cijena ne smije biti negativna.");
 
         this.cijena = cijena;
+    }
+
+    public boolean equals(Object o) {
+        Artikal a = (Artikal)o;
+        return this.sifra.equals(a.sifra) && this.naziv.equals(a.naziv) && Math.abs(a.cijena - this.cijena) < 0.0001;
     }
 
     public static void izbaciDuplikate(ArrayList<Artikal> lista) {
