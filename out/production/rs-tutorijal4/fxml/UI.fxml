@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="327.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ba.unsa.etf.rs.tut4.ArtikalController">
+   <children>
+      <TabPane prefHeight="400.0" prefWidth="327.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="Artikli">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="171.0" prefWidth="374.0">
+                     <children>
+                        <TextArea fx:id="unosArtikala" layoutX="14.0" layoutY="14.0" prefHeight="160.0" prefWidth="180.0" />
+                        <Button layoutX="222.0" layoutY="87.0" mnemonicParsing="false" onAction="#DodajArtikal" text="Dodaj artikle" />
+                        <TextArea fx:id="filtiraniArtikli" editable="false" layoutX="14.0" layoutY="187.0" prefHeight="160.0" prefWidth="180.0" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="Račun">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="389.0" prefWidth="339.0" />
+            </content>
+          </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>
