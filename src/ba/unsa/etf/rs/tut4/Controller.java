@@ -13,30 +13,29 @@ public class Controller {
     public TextArea unosArtikala;
     public TextArea filtiraniArtikli;
 
-    public ChoiceBox<Artikal> choiceBox;
+    public ChoiceBox<String> choiceBox;
     ObservableList choiceBoxLista = FXCollections.observableArrayList();
 
     public Spinner kolicina;
     public TextArea aktuelniRacun;
 
-    Racun ra = new Racun();
+    ArrayList<Artikal> listaArtikala = new ArrayList<>();
+    Racun racun = new Racun();
 
     public void DodajArtikal (ActionEvent actionEvent) {
-        ArrayList<Artikal> lista = new ArrayList<Artikal>();
 
         String[] unos = unosArtikala.getText().split("\n");
-        String[] temp;
 
         for(String red:unos) {
-            lista.add(new Artikal(red));
+            listaArtikala.add(new Artikal(red.trim()));
         }
 
-        Artikal.izbaciDuplikate(lista);
+        Artikal.izbaciDuplikate(listaArtikala);
 
         StringBuilder sb = new StringBuilder();
-        for(Artikal a:lista){
+        for(Artikal a:listaArtikala){
             sb.append(a.sifra + ' ' + a.naziv + ' ' + a.cijena);
-            choiceBoxLista.add(a);
+            choiceBoxLista.add(a.sifra);
             sb.append("\n");
         }
 
@@ -47,13 +46,17 @@ public class Controller {
 
     public void DodajArtikalNaRacun(ActionEvent actionEvent){
 
-        Artikal novi = choiceBox.getValue();
-
+        String sifra = choiceBox.getValue();
         int kolicina = Integer.valueOf(this.kolicina.getValue().toString());
-        ra.dodajStavku(novi,kolicina);
 
+        for(Artikal a:listaArtikala) {
+            if(a.sifra.equals(sifra)) {
+                racun.dodajStavku(a,kolicina);
+                break;
+            }
+        }
 
-
+        aktuelniRacun.setText(racun.izradiRacun());
     }
 
 }

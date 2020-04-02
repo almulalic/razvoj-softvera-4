@@ -31,7 +31,7 @@
                                  <SpinnerValueFactory.IntegerSpinnerValueFactory max="100" min="0" />
                              </valueFactory>
                          </Spinner>
-                        <TextArea layoutX="104.0" layoutY="127.0" prefHeight="157.0" prefWidth="155.0" />
+                        <TextArea fx:id="aktuelniRacun" layoutX="104.0" layoutY="127.0" prefHeight="157.0" prefWidth="155.0" />
                         <Button layoutX="105.0" layoutY="90.0" mnemonicParsing="false" onAction="#DodajArtikalNaRacun" text="Dodaj" />
                      </children>
               </AnchorPane>
