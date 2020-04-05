@@ -8,6 +8,8 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class ArtikalTest {
 
+    // Testovi tutorial 3
+
     @Test
     void getSifra() {
         Artikal a = new Artikal("ABC", "Proizvod", 100);
@@ -140,5 +142,52 @@ class ArtikalTest {
         assertTrue(lista.contains(new Artikal("DEF", "Usluga", 200)));
         assertFalse(lista.contains(new Artikal("ABC", "Usluga", 100)));
         assertFalse(lista.contains(new Artikal("DEF", "Usluga", 100)));
+    }
+
+    // Testovi tutorial 4
+
+    @Test
+    void prviIzuzetakTest() {
+        assertThrows(IllegalArgumentException.class, () -> {
+            new Artikal("", "", -15);
+        }, "Sifra je prazna");
+    }
+
+    @Test
+    void prviIzuzetakTestPrazanString() {
+        assertThrows(IllegalArgumentException.class, () -> {
+            new Artikal("");
+        }, "Sifra je prazna");
+    }
+
+    @Test
+    void izbaciDuplikateMalaRazlika() {
+        ArrayList<Artikal> lista = new ArrayList<>();
+        lista.add(new Artikal("PRVI", "Kafa", 1.50));
+        lista.add(new Artikal("DRUGI", "Caj", 2.00));
+        lista.add(new Artikal("PRVI", "Kafa", 1.55));
+        lista.add(new Artikal("DRUGI", "Caj", 2.01));
+        lista.add(new Artikal("PRVI", "Kafa", 1.501));
+        lista.add(new Artikal("DRUGI", "Caj", 1.999));
+        Artikal.izbaciDuplikate(lista);
+
+        assertEquals(6, lista.size());
+
+        assertTrue(lista.contains(new Artikal("PRVI", "Kafa", 1.50)));
+        assertTrue(lista.contains(new Artikal("DRUGI", "Caj", 2.00)));
+        assertTrue(lista.contains(new Artikal("PRVI", "Kafa", 1.55)));
+        assertTrue(lista.contains(new Artikal("DRUGI", "Caj", 2.01)));
+        assertTrue(lista.contains(new Artikal("PRVI", "Kafa", 1.501)));
+        assertTrue(lista.contains(new Artikal("DRUGI", "Caj", 1.999)));
+
+        lista.get(3).setCijena(2.00000);
+        lista.get(4).setCijena(1.50000);
+
+        Artikal.izbaciDuplikate(lista);
+
+        assertEquals(4,lista.size());
+
+        assertTrue(lista.contains(new Artikal("DRUGI", "Caj", 2.00)));
+        assertTrue(lista.contains(new Artikal("PRVI", "Kafa", 1.50)));
     }
 }

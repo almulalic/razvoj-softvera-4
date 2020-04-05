@@ -22,11 +22,29 @@ class RacunTest {
         assertEquals(0, r.ukupanIznos());
     }
 
-    // Moji testovi
+    // Testovi tutorial 4
 
     @Test
     void testDodajStavku() {
         Racun r = new Racun();
-        r.dodajStavku(new Artikal("CAJ","ČAJ",1.50),5);
+        r.dodajStavku(new Artikal("CAJ","Čaj",1.50),5);
+    }
+
+    @Test
+    void testUkupanIznos() {
+        Racun r = new Racun();
+        r.dodajStavku(new Artikal("CAJ","Čaj",1.50),5);
+        r.dodajStavku(new Artikal("KAF","Kafa",1.00),2);
+        assertEquals(r.ukupanIznos(),9.50);
+    }
+
+    @Test
+    void testIzradiRacun() {
+        Racun r = new Racun();
+        r.dodajStavku(new Artikal("CAJ","Čaj",1.50),5);
+        r.dodajStavku(new Artikal("KAF","Kafa",1.00),2);
+        r.dodajStavku(new Artikal("SOK","Coca Cola",3.00),3);
+
+        assertEquals(r.izradiRacun(),"CAJ\t5\t7.50\n" + "KAF\t2\t2.00\n" + "SOK\t3\t9.00\n" + "UKUPNO\t\t18.50");
     }
 }
