@@ -7,18 +7,18 @@
    <children>
       <TabPane prefHeight="400.0" prefWidth="327.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>
-          <Tab text="Artikli">
+          <Tab fx:id="tabArtikli" text="Artikli">
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="171.0" prefWidth="374.0">
                      <children>
-                        <TextArea fx:id="unosArtikala" layoutX="14.0" layoutY="14.0" prefHeight="160.0" prefWidth="180.0" />
-                        <Button layoutX="222.0" layoutY="87.0" mnemonicParsing="false" onAction="#DodajArtikal" text="Dodaj artikle" />
+                        <TextArea fx:id="unosArtikala" layoutX="14.0" layoutY="14.0" prefHeight="160.0" prefWidth="180.0" text="Testni unos"/>
+                        <Button fx:id="dodajArtikal" layoutX="222.0" layoutY="87.0" mnemonicParsing="false" onAction="#DodajArtikal" text="Dodaj artikle" />
                         <TextArea fx:id="filtiraniArtikli" editable="false" layoutX="14.0" layoutY="187.0" prefHeight="160.0" prefWidth="180.0" />
                      </children>
                   </AnchorPane>
             </content>
           </Tab>
-          <Tab text="Račun">
+          <Tab fx:id="tabRacun" text="Račun">
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="389.0" prefWidth="339.0">
                      <children>
@@ -32,7 +32,7 @@
                              </valueFactory>
                          </Spinner>
                         <TextArea fx:id="aktuelniRacun" layoutX="104.0" layoutY="127.0" prefHeight="157.0" prefWidth="155.0" />
-                        <Button layoutX="105.0" layoutY="90.0" mnemonicParsing="false" onAction="#DodajArtikalNaRacun" text="Dodaj" />
+                        <Button fx:id="dodajNaRacun" layoutX="105.0" layoutY="90.0" mnemonicParsing="false" onAction="#DodajArtikalNaRacun" text="Dodaj" />
                      </children>
               </AnchorPane>
             </content>

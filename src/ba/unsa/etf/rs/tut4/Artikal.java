@@ -1,4 +1,5 @@
 package ba.unsa.etf.rs.tut4;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 public class Artikal {

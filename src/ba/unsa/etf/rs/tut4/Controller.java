@@ -7,11 +7,14 @@ import javafx.scene.control.*;
 import javafx.event.ActionEvent;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Spinner;
+
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 public class Controller {
     public TextArea unosArtikala;
     public TextArea filtiraniArtikli;
+    private static DecimalFormat df = new DecimalFormat("0.00");
 
     public ChoiceBox<String> choiceBox;
     ObservableList choiceBoxLista = FXCollections.observableArrayList();
@@ -34,7 +37,7 @@ public class Controller {
 
         StringBuilder sb = new StringBuilder();
         for(Artikal a:listaArtikala){
-            sb.append(a.sifra + ' ' + a.naziv + ' ' + a.cijena);
+            sb.append(a.sifra + ' ' + a.naziv + ' ' + df.format(a.cijena));
             choiceBoxLista.add(a.sifra);
             sb.append("\n");
         }
